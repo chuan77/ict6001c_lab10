@@ -1,0 +1,8 @@
+version = 1
+revision = 3
+requires-python = ">=3.11"
+
+[[package]]
+name = "ict6001c-lab10"
+version = "0.1.0"
+source = { virtual = "." }
