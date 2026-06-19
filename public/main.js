@@ -1,3 +1,23 @@
+/* ── Theme toggle (dark ↔ light, persisted in sessionStorage) ────────────── */
+(function () {
+  const saved = sessionStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('themeToggle');
+  btn.addEventListener('click', () => {
+    const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    if (next === 'dark') {
+      document.documentElement.removeAttribute('data-theme');
+      sessionStorage.removeItem('theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', next);
+      sessionStorage.setItem('theme', next);
+    }
+  });
+});
+
 /* ── Nav: scroll shadow + mobile toggle ──────────────────────────────────── */
 const nav = document.getElementById('nav');
 const navToggle = document.getElementById('navToggle');
